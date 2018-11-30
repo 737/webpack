@@ -4,16 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack",
-    "server": "webpack-dev-server --open",
+    "start": "webpack-dev-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "webpack": "^3.8.1"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "webpack-cli": "^3.1.2"
+    "webpack": "^3.8.1",
+    "webpack-dev-server": "^2.0.0"
   }
 }
