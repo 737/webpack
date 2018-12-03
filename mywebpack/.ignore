@@ -6,6 +6,8 @@ npm-debug.log
 # tmp
 tmp/
 
+build/
+
 # vscode
 .vscode
 
