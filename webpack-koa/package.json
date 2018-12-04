@@ -3,12 +3,14 @@
     "version": "1.0.0",
     "description": "",
     "scripts": {
-        "start": "node index.js",
+        "dev": "node index.js",
+        "start": "cross-env NODE_ENV=production node index.js",
         "build": "webpack"
     },
     "author": "",
     "license": "ISC",
     "dependencies": {
+        "cross-env": "^5.2.0",
         "koa": "^2.6.2"
     },
     "devDependencies": {

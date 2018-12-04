@@ -8,6 +8,8 @@ const webpackdevmiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const PassThrough = require('stream').PassThrough;
 
+const isProd = process.env.NODE_ENV === 'production';
+
 let devMiddleware = (oCompiler, opts) => {
     let _middleware = webpackdevmiddleware(oCompiler, opts);
 
@@ -24,9 +26,9 @@ let devMiddleware = (oCompiler, opts) => {
     };
 };
 
-
 const hotMiddleware = (compiler, opts) => {
     const middleware = webpackHotMiddleware(compiler, opts);
+    
     return async (ctx, next) => {
         let stream = new PassThrough()
         ctx.body = stream
@@ -39,23 +41,15 @@ const hotMiddleware = (compiler, opts) => {
         }, next)
     }
     
-}
-
-
-
-// app.use(ctx => {
-//     ctx.body = 'hello koa2'
-// })
+};
 
 const compiler = Webpack(webpackConfig);
 
 app.use(devMiddleware(compiler));
 app.use(hotMiddleware(compiler));
 
-
-
 app.listen(3000)
-console.log('[demo] start-quick is starting at port 3000');
+
 
 
 
